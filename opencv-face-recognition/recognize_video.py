@@ -10,6 +10,7 @@ import imutils
 import pickle
 import time
 import cv2
+import insert
 import os
 
 # construct the argument parser and parse the arguments
@@ -107,8 +108,11 @@ while True:
 
 			#post this name to the database if confidence is high enough
 			#if confidence is high post name
+			if proba > 0.60:
+				insert.insert_book(name)
+			print(proba)
 			#else say either no one or not recognized
-			
+
 
 			# draw the bounding box of the face along with the
 			# associated probability
