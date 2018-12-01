@@ -1,8 +1,5 @@
 # USAGE
-# python recognize_video.py --detector face_detection_model \
-#	--embedding-model openface_nn4.small2.v1.t7 \
-#	--recognizer output/recognizer.pickle \
-#	--le output/le.pickle
+# python recognize_video.py --detector face_detection_model --embedding-model openface_nn4.small2.v1.t7 --recognizer output/recognizer.pickle --le output/le.pickle
 
 # import the necessary packages
 from imutils.video import VideoStream
@@ -107,6 +104,11 @@ while True:
 			j = np.argmax(preds)
 			proba = preds[j]
 			name = le.classes_[j]
+
+			#post this name to the database if confidence is high enough
+			#if confidence is high post name
+			#else say either no one or not recognized
+			
 
 			# draw the bounding box of the face along with the
 			# associated probability
